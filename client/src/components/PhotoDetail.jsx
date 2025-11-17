@@ -22,7 +22,8 @@ export default function PhotoDetail({ photos, onDelete }) {
           <button
             className="flex cursor-pointer items-center gap-1 bg-red-600 hover:bg-red-700 text-white px-3 py-1.5 rounded-lg font-medium shadow transition"
             onClick={async () => {
-              if (!confirm("Are you sure you want to delete this photo?")) return;
+              if (!confirm("Are you sure you want to delete this photo?"))
+                return;
               try {
                 await onDelete(photo.id);
                 navigate("/gallery");

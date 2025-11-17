@@ -17,7 +17,7 @@ export default function PhotoCard({ photo }) {
         />
       </div>
 
-      <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 to-transparent p-3 opacity-90">
+      <div className="absolute bottom-0 left-0 w-full bg-linear-to-t from-black/70 to-transparent p-3 opacity-90">
         <p className="text-white font-semibold text-sm truncate drop-shadow-md">
           {photo.title}
         </p>

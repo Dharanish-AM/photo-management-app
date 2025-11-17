@@ -5,10 +5,14 @@ export default function UploadForm({ onUpload }) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [file, setFile] = useState(null);
-  const [modal, setModal] = useState({ open: false, success: true, message: "" });
+  const [modal, setModal] = useState({
+    open: false,
+    success: true,
+    message: "",
+  });
   const navigate = useNavigate();
 
-  const handleSubmit = async e => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!file || !title.trim()) return;
 
@@ -20,6 +24,7 @@ export default function UploadForm({ onUpload }) {
         message: "Photo uploaded successfully!",
       });
     } catch (err) {
+      console.error("Upload failed:", err);
       setModal({
         open: true,
         success: false,
@@ -44,7 +49,7 @@ export default function UploadForm({ onUpload }) {
           <input
             type="file"
             accept="image/*"
-            onChange={e => setFile(e.target.files[0])}
+            onChange={(e) => setFile(e.target.files[0])}
             className="border border-gray-300 rounded-lg p-3 bg-gray-50 hover:bg-gray-100 transition"
           />
         </label>
@@ -56,7 +61,7 @@ export default function UploadForm({ onUpload }) {
             placeholder="Enter a memorable title..."
             value={title}
             className="border p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-            onChange={e => setTitle(e.target.value)}
+            onChange={(e) => setTitle(e.target.value)}
           />
         </label>
 
@@ -66,7 +71,7 @@ export default function UploadForm({ onUpload }) {
             placeholder="Write something about this photo (optional)"
             value={description}
             className="border p-3 rounded-lg h-24 resize-none focus:outline-none focus:ring-2 focus:ring-blue-500"
-            onChange={e => setDescription(e.target.value)}
+            onChange={(e) => setDescription(e.target.value)}
           />
         </label>
 
@@ -84,36 +89,42 @@ export default function UploadForm({ onUpload }) {
           </p>
         )}
       </form>
-    {/* Modal UI */}
-    {modal.open && (
-      <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-        <div className="bg-white rounded-xl shadow-xl p-6 w-80 text-center">
-          <h3 className={`text-xl font-bold ${modal.success ? "text-green-600" : "text-red-600"}`}>
-            {modal.success ? "Success 🎉" : "Error ❌"}
-          </h3>
-          <p className="mt-2 text-gray-700">{modal.message}</p>
-
-          <div className="flex flex-col gap-3 mt-5">
-            <button
-              className="bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg font-semibold transition"
-              onClick={() => {
-                setModal({ open: false, success: true, message: "" });
-                navigate("/gallery");
-              }}
+      {/* Modal UI */}
+      {modal.open && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+          <div className="bg-white rounded-xl shadow-xl p-6 w-80 text-center">
+            <h3
+              className={`text-xl font-bold ${
+                modal.success ? "text-green-600" : "text-red-600"
+              }`}
             >
-              Go to Gallery
-            </button>
+              {modal.success ? "Success 🎉" : "Error ❌"}
+            </h3>
+            <p className="mt-2 text-gray-700">{modal.message}</p>
 
-            <button
-              className="bg-gray-200 hover:bg-gray-300 text-gray-800 py-2 rounded-lg font-semibold transition"
-              onClick={() => setModal({ open: false, success: true, message: "" })}
-            >
-              Close
-            </button>
+            <div className="flex flex-col gap-3 mt-5">
+              <button
+                className="bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg font-semibold transition"
+                onClick={() => {
+                  setModal({ open: false, success: true, message: "" });
+                  navigate("/gallery");
+                }}
+              >
+                Go to Gallery
+              </button>
+
+              <button
+                className="bg-gray-200 hover:bg-gray-300 text-gray-800 py-2 rounded-lg font-semibold transition"
+                onClick={() =>
+                  setModal({ open: false, success: true, message: "" })
+                }
+              >
+                Close
+              </button>
+            </div>
           </div>
         </div>
-      </div>
-    )}
+      )}
     </div>
   );
 }
