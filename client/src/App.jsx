@@ -3,7 +3,11 @@ import { Routes, Route, Link, useNavigate } from "react-router-dom";
 import UploadForm from "./components/UploadForm.jsx";
 import Gallery from "./components/Gallery.jsx";
 import PhotoDetail from "./components/PhotoDetail.jsx";
-import { getAllPhotos, savePhoto } from "./services/photoService.js";
+import {
+  deletePhoto,
+  getAllPhotos,
+  savePhoto,
+} from "./services/photoService.js";
 
 export default function App() {
   const [photos, setPhotos] = useState([]);
@@ -19,6 +23,16 @@ export default function App() {
   const handleUpload = async (data) => {
     const newPhoto = await savePhoto(data);
     setPhotos((prev) => [newPhoto, ...prev]);
+  };
+
+  const handleDelete = async (id) => {
+    try {
+      await deletePhoto(id);
+      setPhotos((prev) => prev.filter((photo) => photo.id !== id));
+    } catch (err) {
+      console.error("Delete failed:", err);
+      alert("Failed to delete photo");
+    }
   };
 
   return (
@@ -56,7 +70,10 @@ export default function App() {
             element={<UploadForm onUpload={handleUpload} />}
           />
           <Route path="/gallery" element={<Gallery photos={photos} />} />
-          <Route path="/photo/:id" element={<PhotoDetail photos={photos} />} />
+          <Route
+            path="/photo/:id"
+            element={<PhotoDetail photos={photos} onDelete={handleDelete} />}
+          />
         </Routes>
       </main>
     </div>

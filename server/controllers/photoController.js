@@ -41,8 +41,21 @@ function uploadPhoto(req, res) {
   res.status(201).json(newPhoto);
 }
 
+function deletePhoto(req, res) {
+  const photos = loadDB();
+  const filtered = photos.filter((p) => p.id !== req.params.id);
+
+  if (filtered.length === photos.length) {
+    return res.status(404).json({ error: "Photo not found" });
+  }
+
+  saveDB(filtered);
+  return res.json({ success: true, message: "Photo deleted" });
+}
+
 module.exports = {
   getPhotos,
   getPhotoById,
   uploadPhoto,
+  deletePhoto,
 };

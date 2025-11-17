@@ -3,6 +3,7 @@ const {
   uploadPhoto,
   getPhotos,
   getPhotoById,
+  deletePhoto,
 } = require("../controllers/photoController.js");
 const multer = require("multer");
 
@@ -18,5 +19,6 @@ const upload = multer({ storage });
 router.get("/", getPhotos);
 router.get("/:id", getPhotoById);
 router.post("/", upload.single("file"), uploadPhoto);
+router.delete("/:id", deletePhoto);
 
 module.exports = router;
