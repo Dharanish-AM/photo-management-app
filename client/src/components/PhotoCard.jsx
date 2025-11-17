@@ -6,12 +6,21 @@ export default function PhotoCard({ photo }) {
 
   return (
     <div
-      className="cursor-pointer shadow hover:shadow-lg rounded-lg overflow-hidden bg-white"
       onClick={() => navigate(`/photo/${photo.id}`)}
+      className="group relative cursor-pointer rounded-xl overflow-hidden shadow-md bg-white hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
     >
-      <img src={photo.url} alt={photo.title} className="w-full h-36 object-cover" />
-      <div className="p-2">
-        <p className="text-sm font-medium">{photo.title}</p>
+      <div className="w-full h-40 bg-gray-200 overflow-hidden">
+        <img
+          src={photo.url}
+          alt={photo.title}
+          className="w-full h-full object-cover group-hover:scale-105 transition duration-300"
+        />
+      </div>
+
+      <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 to-transparent p-3 opacity-90">
+        <p className="text-white font-semibold text-sm truncate drop-shadow-md">
+          {photo.title}
+        </p>
       </div>
     </div>
   );

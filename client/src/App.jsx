@@ -25,14 +25,23 @@ export default function App() {
     <div className="min-h-screen flex flex-col bg-gray-50">
       <header className="bg-gray-900 text-white shadow-lg border-b border-gray-700">
         <nav className="max-w-5xl mx-auto flex items-center justify-between px-6 py-4">
-          <Link to="/" className="text-xl font-extrabold tracking-wide hover:text-blue-400 transition">
-            📸 Photo Manager
+          <Link
+            to="/"
+            className="text-xl font-extrabold tracking-wide hover:text-blue-400 transition"
+          >
+            Photo Manager
           </Link>
           <div className="flex gap-6">
-            <Link to="/upload" className="hover:text-blue-400 transition font-medium">
+            <Link
+              to="/upload"
+              className="hover:text-blue-400 transition font-medium"
+            >
               Upload
             </Link>
-            <Link to="/gallery" className="hover:text-blue-400 transition font-medium">
+            <Link
+              to="/gallery"
+              className="hover:text-blue-400 transition font-medium"
+            >
               Gallery
             </Link>
           </div>
@@ -58,7 +67,9 @@ function Home() {
   const navigate = useNavigate();
   return (
     <div className="flex flex-col items-center justify-center text-center mt-24">
-      <h1 className="text-4xl font-bold mb-4 tracking-tight">Welcome to <span className="text-blue-600">Photo Manager</span></h1>
+      <h1 className="text-4xl font-bold mb-4 tracking-tight">
+        Welcome to <span className="text-blue-600">Photo Manager</span>
+      </h1>
       <p className="text-gray-600 mb-8 max-w-lg text-lg">
         Upload your photos, organize them, and view them anytime.
       </p>
