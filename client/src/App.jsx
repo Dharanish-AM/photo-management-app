@@ -47,8 +47,8 @@ export default function App() {
 
   return (
     <div className="min-h-screen flex flex-col bg-gray-50">
-      <header className="bg-white text-gray-800 shadow-xl sticky top-0 z-20">
-        <nav className="max-w-5xl mx-auto flex items-center justify-between px-6 py-4">
+      <header className="bg-white w-screen text-gray-800 shadow-xl sticky top-0 z-20">
+        <nav className="mx-auto flex items-center justify-between px-6 py-4">
           <Link
             to="/"
             className="text-2xl font-black tracking-wide text-blue-600 hover:text-blue-800 transition transform hover:scale-[1.02]"

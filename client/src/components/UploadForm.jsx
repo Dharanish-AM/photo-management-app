@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -123,7 +122,7 @@ export default function UploadForm({ onUpload }) {
               onChange={(e) => setTitle(e.target.value)}
               required
               className="w-full px-4 py-3 border border-gray-300 rounded-xl shadow-sm focus:ring-blue-500 focus:border-blue-500 transition duration-300"
-              placeholder="e.g., A Sunset over the Himalayas"
+              placeholder="Photo title"
             />
           </div>
 
@@ -141,7 +140,7 @@ export default function UploadForm({ onUpload }) {
               required
               rows="4"
               className="w-full px-4 py-3 border border-gray-300 rounded-xl shadow-sm focus:ring-blue-500 focus:border-blue-500 transition duration-300 resize-none"
-              placeholder="Tell us about your photo..."
+              placeholder="Short description"
             ></textarea>
           </div>
 
@@ -150,7 +149,7 @@ export default function UploadForm({ onUpload }) {
               htmlFor="file-input"
               className="block text-center text-sm font-medium text-gray-700 cursor-pointer"
             >
-              Click to select file
+              Choose a photo
             </label>
             <input
               id="file-input"
