@@ -8,6 +8,10 @@ app.use(express.json());
 
 app.use("/uploads", express.static("uploads"));
 
+app.get("/", (req, res) => {
+  res.send("Photo Management API is running");
+});
+
 app.use("/api/photos", photoRoutes);
 
 app.listen(8000, () => {

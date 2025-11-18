@@ -1,23 +1,18 @@
 [
   {
-    "id": "1763395589010",
+    "id": "1763464918799",
+    "title": "QR CODE",
+    "description": "QR CODE DESCRIPTION",
+    "url": "https://res.cloudinary.com/dgl2ez8nq/image/upload/v1763464918/rnj0lsjvcnsswdhyron0.png",
+    "publicId": "rnj0lsjvcnsswdhyron0",
+    "createdAt": "2025-11-18T11:21:58.799Z"
+  },
+  {
+    "id": "1763464721341",
     "title": "Image 1",
-    "description": "Image 1",
-    "url": "http://localhost:8000/uploads/1763395589001-pexels-jaime-reimer-1376930-2662116.jpg",
-    "createdAt": "2025-11-17T16:06:29.010Z"
-  },
-  {
-    "id": "1763387810125",
-    "title": "Github Contributions",
-    "description": "1000+ Github Contributions",
-    "url": "http://localhost:8000/uploads/1763387810121-Screenshot 2025-11-12 at 4.49.36â¯PM.png",
-    "createdAt": "2025-11-17T13:56:50.125Z"
-  },
-  {
-    "id": "1763386371288",
-    "title": "PASSPORT SIZE PHOTO",
-    "description": "PASSPORT SIZE PHOTO",
-    "url": "http://localhost:8000/uploads/1763386371280-Passport.png",
-    "createdAt": "2025-11-17T13:32:51.288Z"
+    "description": "Image 1 Description",
+    "url": "https://res.cloudinary.com/dgl2ez8nq/image/upload/v1763464720/yxkgelh7pw8viogygqz4.jpg",
+    "publicId": "yxkgelh7pw8viogygqz4",
+    "createdAt": "2025-11-18T11:18:41.341Z"
   }
 ]

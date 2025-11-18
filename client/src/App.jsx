@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 import { Routes, Route, Link, useNavigate } from "react-router-dom";
 import UploadForm from "./components/UploadForm.jsx";
@@ -10,18 +9,16 @@ import {
   savePhoto,
 } from "./services/photoService.js";
 
-
 export default function App() {
   const [photos, setPhotos] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  
   useEffect(() => {
     async function loadPhotos() {
       setIsLoading(true);
       try {
         const data = await getAllPhotos();
-        
+
         setPhotos(Array.isArray(data) ? data : []);
       } catch (error) {
         console.error("Failed to load initial photos:", error);
@@ -32,13 +29,11 @@ export default function App() {
     loadPhotos();
   }, []);
 
-  
   const handleUpload = async (data) => {
     const newPhoto = await savePhoto(data);
     setPhotos((prev) => [newPhoto, ...prev]);
   };
 
-  
   const handleDelete = async (id) => {
     try {
       await deletePhoto(id);
@@ -46,7 +41,7 @@ export default function App() {
     } catch (err) {
       console.error("Delete failed:", err);
       alert("Failed to delete photo");
-      throw err; 
+      throw err;
     }
   };
 
@@ -58,11 +53,11 @@ export default function App() {
             to="/"
             className="text-2xl font-black tracking-wide text-blue-600 hover:text-blue-800 transition transform hover:scale-[1.02]"
           >
-            📸 Photo Manager
+            Photo Manager
           </Link>
           <div className="flex gap-4 sm:gap-6">
-            <NavLink to="/upload" icon="⬆️" label="Upload" />
-            <NavLink to="/gallery" icon="🖼️" label="Gallery" />
+            <NavLink to="/upload" label="Upload" />
+            <NavLink to="/gallery" label="Gallery" />
           </div>
         </nav>
       </header>
@@ -88,7 +83,6 @@ export default function App() {
   );
 }
 
-
 const NavLink = ({ to, icon, label }) => {
   return (
     <Link
@@ -100,7 +94,6 @@ const NavLink = ({ to, icon, label }) => {
     </Link>
   );
 };
-
 
 function Home() {
   const navigate = useNavigate();
@@ -120,14 +113,14 @@ function Home() {
           className="flex-1 bg-blue-600 hover:bg-blue-700 text-white px-5 py-3 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl 
                      transition duration-300 transform hover:scale-[1.05] hover:ring-4 hover:ring-blue-500/50"
         >
-          ⬆️ Upload Photo
+          Upload Photo
         </button>
         <button
           onClick={() => navigate("/gallery")}
           className="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-900 px-5 py-3 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl 
                      transition duration-300 transform hover:scale-[1.05]"
         >
-          🖼️ View Gallery
+          View Gallery
         </button>
       </div>
     </div>

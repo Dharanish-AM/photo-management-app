@@ -6,7 +6,7 @@ const Modal = ({ isOpen, onClose, title, message, isSuccess, goToGallery }) => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 p-4 transition-opacity duration-300">
+    <div className="fixed inset-0 bg-black/40 bg-opacity-70 flex items-center justify-center z-50 p-4 transition-opacity duration-300">
       <div className="bg-white rounded-xl shadow-2xl p-8 w-full max-w-sm transform scale-100 transition duration-300">
         <div className="flex flex-col items-center text-center">
           <div
@@ -24,7 +24,7 @@ const Modal = ({ isOpen, onClose, title, message, isSuccess, goToGallery }) => {
               onClick={goToGallery}
               className="w-full py-3 px-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-300 font-semibold"
             >
-              Go to Gallery 🖼️
+              Go to Gallery
             </button>
           ) : (
             <button
@@ -105,7 +105,7 @@ export default function UploadForm({ onUpload }) {
     <>
       <div className="bg-white p-8 rounded-2xl shadow-2xl space-y-8 animate-in fade-in slide-in-from-top-4 duration-500">
         <h2 className="text-3xl font-bold text-gray-800 text-center border-b pb-4">
-          Upload Your Masterpiece 🎨
+          Upload Your Masterpiece
         </h2>
 
         <form onSubmit={handleSubmit} className="space-y-6">
@@ -150,7 +150,6 @@ export default function UploadForm({ onUpload }) {
               htmlFor="file-input"
               className="block text-center text-sm font-medium text-gray-700 cursor-pointer"
             >
-              <span className="text-3xl block mb-2">📸</span>
               Click to select file
             </label>
             <input
@@ -185,7 +184,7 @@ export default function UploadForm({ onUpload }) {
                 Uploading...
               </span>
             ) : (
-              "🚀 Start Upload"
+              "Start Upload"
             )}
           </button>
         </form>

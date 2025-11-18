@@ -23,7 +23,7 @@ const PhotoCard = ({ photo }) => {
             {photo.title}
           </h3>
           <p className="text-blue-200 text-sm opacity-0 group-hover:opacity-100 transition duration-300">
-            View Details ➡️
+            View Details
           </p>
         </div>
       </div>
@@ -36,7 +36,7 @@ export default function Gallery({ photos }) {
     return (
       <div className="text-center p-16 bg-white rounded-xl shadow-lg mt-10 animate-in fade-in duration-500">
         <h2 className="text-3xl font-bold text-gray-700 mb-4">
-          Empty Gallery 😞
+          Empty Gallery
         </h2>
         <p className="text-gray-500 text-lg">
           It looks like you haven't uploaded any photos yet.
