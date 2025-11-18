@@ -104,7 +104,7 @@ export default function UploadForm({ onUpload }) {
     <>
       <div className="bg-white p-8 rounded-2xl shadow-2xl space-y-8 animate-in fade-in slide-in-from-top-4 duration-500">
         <h2 className="text-3xl font-bold text-gray-800 text-center border-b pb-4">
-          Upload Your Masterpiece
+          Upload Your Photos
         </h2>
 
         <form onSubmit={handleSubmit} className="space-y-6">
